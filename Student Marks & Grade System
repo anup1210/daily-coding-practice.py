@@ -1,0 +1,42 @@
+
+
+def calculate_grade(percentage):
+    if percentage >= 90:
+        return "A+"
+    elif percentage >= 80:
+        return "A"
+    elif percentage >= 70:
+        return "B"
+    elif percentage >= 60:
+        return "C"
+    elif percentage >= 50:
+        return "D"
+    else:
+        return "F"
+
+
+print("===== Student Result System =====")
+
+name = input("Enter student name: ")
+subjects = int(input("Enter number of subjects: "))
+
+marks = []
+
+for i in range(subjects):
+    mark = float(input(f"Enter marks for subject {i + 1}: "))
+    marks.append(mark)
+
+total = sum(marks)
+percentage = total / subjects
+grade = calculate_grade(percentage)
+
+print("\n===== RESULT =====")
+print("Student:", name)
+print("Total Marks:", total)
+print("Percentage:", round(percentage, 2), "%")
+print("Grade:", grade)
+
+if grade == "F":
+    print("Status: Fail")
+else:
+    print("Status: Pass")
